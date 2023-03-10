@@ -27,10 +27,17 @@
 // ["Customer Name :Romio Joliat , Age :35", "Customer Name :Mario Ristrova , Age :39", ... ]
 
 const customerAndAge = (obj) => {
+  let arrayOfName = Object.getOwnPropertyNames(obj);
+  let arrayOfString = [];
 
-  
-};
-// -------------------------------------------------------------------------------------------------------
+  arrayOfString[0] = `Customer Name :${arrayOfName[0]} , Age :${obj[arrayOfName[0]]}`;
+  arrayOfString[1] = `Customer Name :${arrayOfName[1]} , Age :${obj[arrayOfName[1]]}`;
+  arrayOfString[2] = `Customer Name :${arrayOfName[2]} , Age :${obj[arrayOfName[2]]}`;
+
+  return arrayOfString;
+}
+    
+ // --){-------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------
 // Challenge 02
