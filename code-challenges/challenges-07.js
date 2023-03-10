@@ -21,9 +21,9 @@
 //  2- The first letters of the firstName and lastName should be capital letter
 
 const objLat = (obj) => {
-obj.firstName=obj.firstName.charAt(0).toUpperCase()+ firstName.slice(1);
-obj.lastName=obj.lastName.charAt(0).toUpperCase() + + lastName.slice(1);
-return `my name is ${obj.firstName} ${obj.lastName} I am ${obj.age} YO, and I love ${obj.hobby}.`    
+    obj.firstName = obj.firstName.charAt(0).toUpperCase() + obj.firstName.slice(1);
+    obj.lastName = obj.lastName.charAt(0).toUpperCase() + obj.lastName.slice(1);
+    return `my name is ${obj.firstName} ${obj.lastName} I am ${obj.age} YO, and I love ${obj.hobby}.` ;
 };
 
 // -------------------------------------------------------------------------------------------------------
@@ -88,34 +88,20 @@ return `my name is ${obj.firstName} ${obj.lastName} I am ${obj.age} YO, and I lo
 //  2- If one of the names is null don`t add it to the full name
 
 const cvFormatter = (arr) => {
-
-for (let i=0 ; i<arr.lenght ; i++)
-{
-    let fullName ;
-    if(arr[i].firstName != null && arr[i].lastName != null){
-        fullName = arr[i].firstName + arr[i].lastName;
-        arr[i].pop();
-        delete arr[i].firstName;
-        delete arr[i].lastName;
-        delete arr[i].yearsOfExperience;
-    }else if(arr[i].firstName != null && arr[i].lastName == null){
-        arr[i].fullName = arr[i].firstName;
-        delete arr[i].firstName;
-        delete arr[i].lastName;
-        delete arr[i].yearsOfExperience;
-    }else if(arr[i].firstName == null && arr[i].lastName != null){
-        arr[i].fullName =arr[i].lastName;
-        delete arr[i].firstName;
-        delete arr[i].lastName;
-        delete arr[i].yearsOfExperience;
-    };
-
-    if(arr[i].yearsOfExperience <= 1){
-        delete arr[i]
-    };    
-}
-return arr;
-
+    let newArray = [];
+    for (let  i= 0;  i< arr.length; i++) {
+        
+        if(arr[i].yearsOfExperience > 1){
+            let fullName = `${arr[i].firstName || ''} ${arr[i].lastName || ''}`.trim();
+        
+        let newObject = {
+            fullName ,
+            tech: arr[i].tech
+        } 
+        newArray.push(newObject);
+    }
+    }
+    return newArray;
 };
 // -------------------------------------------------------------------------------------------------------
 
