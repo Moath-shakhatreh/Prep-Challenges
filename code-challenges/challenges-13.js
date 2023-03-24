@@ -38,13 +38,13 @@
 //
 // Output: 5
 
-const objectCounter = (obj) => {
-    document.getElementById("demo").innerHTML = numbers.reduce(myFunc);
-
-function myFunc(total, num) {
-  return total - num;
-}
-
+const objectCounter = (arr) => {
+  const initialValue = 0;
+  const sumWithInitial = arr.reduce(
+    (accumulator, currentValue) => accumulator+1,
+    initialValue
+  );
+return sumWithInitial;
 }
 // -------------------------------------------------------------------------------------------------------
 
@@ -65,13 +65,14 @@ function myFunc(total, num) {
 
 const stringReverse = (str) => {
     // write your code here
-    const numbers = [15.5, 2.3, 1.1, 4.7];
-document.getElementById("demo").innerHTML = numbers.reduce(getSum, 0);
-
-function getSum(total, num) {
-  return total + Math.round(num);
-}
-
+    let c = str.split(' ');
+    let i = [] ;
+    let result = c.reduce((acc,curr,index)=>
+  
+      i[index]=c[c.length-1-index] , 0
+    )
+    let m = `${i.join(' ')}` ;
+    return m;
 }
 // -------------------------------------------------------------------------------------------------------
 
