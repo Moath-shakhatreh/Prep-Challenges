@@ -16,6 +16,12 @@
 
 const recursionPattern = (int1, int2) => {
     // write your code here
+    if(int1 != int2 && Math.sign(int1-int2) != -1 ){
+        return [int1,int1-int2,recursionPattern(int1-int2,int2)]
+         }
+    else if (int1 != int2 && Math.sign(int2) == -1 ){
+        return [int1,int1+int2,recursionPattern(int1+int2,int2)]
+    }
 }
 // -------------------------------------------------------------------------------------------------------
 
