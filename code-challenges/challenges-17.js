@@ -16,12 +16,10 @@
 
 const recursionPattern = (int1, int2) => {
     // write your code here
-    if(int1 != int2 && Math.sign(int1-int2) != -1 ){
-        return [int1,int1-int2,recursionPattern(int1-int2,int2)]
-         }
-    else if (int1 != int2 && Math.sign(int2) == -1 ){
-        return [int1,int1+int2,recursionPattern(int1+int2,int2)]
-    }
+    if (int1 <0) return [int1]
+    else {
+    return [int1,...recursionPattern(int1-int2,int2),int1]
+}
 }
 // -------------------------------------------------------------------------------------------------------
 
@@ -42,14 +40,15 @@ const recursionPattern = (int1, int2) => {
 const filterLinks = (str) => {
     // write your code here
     let pattern = /www+\.+\w+\.+com/ig;
-    let pattern1 = /www+\.+\w+\.+net/ig;
-    let pattern2 = /www+\.+\w+\.+org/ig;
-    if(pattern.exec(str) != null ){
-        return pattern.exec(str)[0]
-    }else if(pattern1.exec(str) != null ){
-        return pattern1.exec(str)[0]
-    }else if(pattern2.exec(str) != null ){
-        return pattern2.exec(str)[0]
+let pattern1 = /www+\.+\w+\.+net/ig;
+let pattern2 = /www+\.+\w+\.+org/ig;
+
+    if(pattern.test(str)){
+        return  str.match(pattern).join() 
+    }else if(pattern1.test(str)){
+        return str.match(pattern1).join()
+    }else if(pattern2.test(str)){
+        return str.match(pattern2).join()
     }
 }
 // -------------------------------------------------------------------------------------------------------
@@ -70,6 +69,18 @@ const filterLinks = (str) => {
 
 const isPalindrome = (str) => {
     // write your code here
+    let s1 = str.toLowerCase().split('')
+// let s2 = s1.split('')
+let arr = []
+for (let i =0 ; i<s1.length; i++){
+if( (/[a-zA-Z]/).test(s1[i]) ){
+    arr.push(s1[i])
+}
+}
+let originalString = arr.join('')
+let reverseString = arr.reverse().join('')
+
+return originalString==reverseString
 }
 // -------------------------------------------------------------------------------------------------------
 
