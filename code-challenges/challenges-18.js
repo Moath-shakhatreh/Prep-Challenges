@@ -17,23 +17,24 @@
 const wordLength = (str) => {
     // write your code here
     let arr= str.split('')
-if(arr.length==1){return arr[0]}
-let n = [];
-for(let i=0; i<arr.length; i++){
-    if(arr[i]==" "){
-        n.push(i)
-}
-
-let k = Math.floor((n.length)/2)
-let s = n[k-1]; let e = n[k]
-let result = []
-for(let i=s+1; i<e; i++)
-{
-    result.push(arr[i])
-}
-return result.join('')
-
-}
+    if(arr.length==1){return 1}
+    let n = [];
+    for(let i=0; i<arr.length; i++){
+        if(arr[i]==" "){
+            n.push(i)
+        }
+    }
+    let k = Math.floor((n.length)/2)
+    let k1 = Math.ceil((n.length)/2)
+    if(k!=k1){return 1}
+    
+    let s = n[k-1]; let e = n[k]
+    let result = []
+    for(let i=s+1; i<e; i++)
+    {
+        result.push(arr[i])
+    }
+    return result.join('').length
 }
 // -------------------------------------------------------------------------------------------------------
 
@@ -58,7 +59,7 @@ return result.join('')
 // Output: false
 
 const wordLetters = (str1, str2) => {
-    // write your code here
+    return str1.length===str2.length && str1.split("").sort().join() == str2.split("").sort().join()
 }
 // -------------------------------------------------------------------------------------------------------
 
@@ -83,6 +84,13 @@ const wordLetters = (str1, str2) => {
 
 const targetIndex = (arr, int) => {
     // write your code here
+    for(let i=0; i<arr.length; i++){
+        if(arr[i]==int){
+            return(i)
+        }else if((int-arr[i]) == 1){
+            return(i+1)
+        }
+    }
 }
 // -------------------------------------------------------------------------------------------------------
 
