@@ -24,7 +24,7 @@
         {
             "language": "javascript",
             "source": [
-                "const fs = require('fs');\n\nprocess.stdin.resume();\nprocess.stdin.setEncoding('utf-8');\n\nlet inputString = '';\nlet currentLine = 0;\n\nprocess.stdin.on('data', function(inputStdin) {\n    inputString += inputStdin;\n});\n\nprocess.stdin.on('end', function() {\n    inputString = inputString.split('\\n');\n\n    main();"
+                "function appendAndDelete(s, t, k) {\n\n    let sArr = s.split(\"\")\n    let tArr = t.split(\"\")\n    let n = 0\n    for (let i = 0; i === n && i < s.length; i++) {\n        if (sArr[i] === tArr[i]) {\n            n++\n        }\n    }\n    let x = t.length - n\n    let y = s.length - n\n\n    let z = k - (x + y)\n    if (x + y < k && t.length + s.length > k && z % 2 !== 0) {\n        return \"No\"\n    } else if (x + y <= k) {\n        return \"Yes\"\n    } else {\n        return \"No\"\n    }\n\n}"
             ],
             "outputs": []
         },
@@ -45,7 +45,7 @@
         {
             "language": "javascript",
             "source": [
-                ""
+                "function encryption(s) {\n  let value = Math.ceil(Math.sqrt(s.length));\n\n  return [...s]\n    .reduce((target, item, index) => {\n      target[index % value] += item;\n\n      return target;\n    }, new Array(value).fill(\"\"))\n    .join(\" \");\n}\n"
             ],
             "outputs": []
         },
@@ -59,7 +59,7 @@
         {
             "language": "javascript",
             "source": [
-                ""
+                "function timeInWords(h, m) {\n\n    let words = [\n        \"zero\", \"one\", \"two\", \"three\", \"four\", \"five\", \"six\", \"seven\", \"eight\", \"nine\", \"ten\", \"eleven\", \"twelve\", \"thirteen\", \"fourteen\", \"fifteen\", \"sixteen\", \"seventeen\", \"eightteen\", \"nineteen\", \"twenty\", \"twenty one\", \"twenty two\", \"twenty three\", \"twenty four\", \"twenty five\", \"twenty six\", \"twenty seven\", \"twenty eight\", \"twenty nine\"];\n\n    return !m\n        ? `${words[h]} o' clock`\n        : `${!(m % 30)\n            ? \"half\"\n            : !(m % 15)\n                ? \"quarter\"\n                : `${m <= 30 ? words[m] : words[60 - m]} ${`minute${m > 1 ? \"s\" : \"\"\n                }`}`\n        } ${m <= 30 ? \"past\" : \"to\"} ${words[m <= 30 ? h : h + 1]}`;\n\n}"
             ],
             "outputs": []
         }
