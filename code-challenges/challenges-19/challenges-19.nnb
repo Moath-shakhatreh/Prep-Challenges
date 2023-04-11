@@ -1,0 +1,67 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "## Hacker Rank\n\nFor Thursdays you will be solving some selected challenges on HackerRank, please create an account if you don't have then\nFollow the links below:\nread them carefully and solve them then copy-paste your solution below in Code Block"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Required**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Append And Delete](https://www.hackerrank.com/challenges/append-and-delete/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function appendAndDelete(s, t, k) {\n\n    let sArr = s.split(\"\")\n    let tArr = t.split(\"\")\n    let n = 0\n    for (let i = 0; i === n && i < s.length; i++) {\n        if (sArr[i] === tArr[i]) {\n            n++\n        }\n    }\n    let x = t.length - n\n    let y = s.length - n\n\n    let z = k - (x + y)\n    if (x + y < k && t.length + s.length > k && z % 2 !== 0) {\n        return \"No\"\n    } else if (x + y <= k) {\n        return \"Yes\"\n    } else {\n        return \"No\"\n    }\n\n}"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### **Optional**:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [Encryption](https://www.hackerrank.com/challenges/encryption/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function encryption(s) {\n  let value = Math.ceil(Math.sqrt(s.length));\n\n  return [...s]\n    .reduce((target, item, index) => {\n      target[index % value] += item;\n\n      return target;\n    }, new Array(value).fill(\"\"))\n    .join(\" \");\n}\n"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "#####  [The Time In Words](https://www.hackerrank.com/challenges/the-time-in-words/problem?isFullScreen=true)\n\nSolution:"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "function timeInWords(h, m) {\n\n    let words = [\n        \"zero\", \"one\", \"two\", \"three\", \"four\", \"five\", \"six\", \"seven\", \"eight\", \"nine\", \"ten\", \"eleven\", \"twelve\", \"thirteen\", \"fourteen\", \"fifteen\", \"sixteen\", \"seventeen\", \"eightteen\", \"nineteen\", \"twenty\", \"twenty one\", \"twenty two\", \"twenty three\", \"twenty four\", \"twenty five\", \"twenty six\", \"twenty seven\", \"twenty eight\", \"twenty nine\"];\n\n    return !m\n        ? `${words[h]} o' clock`\n        : `${!(m % 30)\n            ? \"half\"\n            : !(m % 15)\n                ? \"quarter\"\n                : `${m <= 30 ? words[m] : words[60 - m]} ${`minute${m > 1 ? \"s\" : \"\"\n                }`}`\n        } ${m <= 30 ? \"past\" : \"to\"} ${words[m <= 30 ? h : h + 1]}`;\n\n}"
+            ],
+            "outputs": []
+        }
+    ]
+}
